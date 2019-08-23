@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     toggle(router_name) {
-      this.router.push(router_name);
+      this.$router.push(router_name);
     }
   }
 };
