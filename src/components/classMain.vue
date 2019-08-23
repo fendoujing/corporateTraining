@@ -14,6 +14,12 @@
       </div>
     </div>
   </div>
+ <div class="classMain">
+     <div v-on:click="()=>{$router.push('person')}">dfdsf</div>
+     课堂首页
+     <div class="slickSlide"><slick-slide></slick-slide></div>
+
+ </div>
 </template>
 
 <script>

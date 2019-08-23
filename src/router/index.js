@@ -33,6 +33,6 @@ let router = [{
 
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: router,
 })
