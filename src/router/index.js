@@ -5,17 +5,22 @@ Vue.use(Router)
 
 import Person from "../components/person"
 import classMain from "../components/classMain"
+import Message from "../components/message"
 
-let router = [
-    {
-        path: '/person',
-        name: 'person',
-        component: Person,
-    },
-    {
-      path: '/classMain',
-      name: 'classMain',
-      component: classMain,
+let router = [{
+    path: '/person',
+    name: 'person',
+    component: Person,
+  },
+  {
+    path: '/classMain',
+    name: 'classMain',
+    component: classMain,
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: Message,
   },
 
 ];
@@ -23,6 +28,6 @@ let router = [
 
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: router,
 })

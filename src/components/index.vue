@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" @click.capture="isMessShow = false;">
     <header class="top">
       <div class="logo">
-        <img src="../static/images/logo.png" alt />
+        <img src="../../static/images/logo2.png" alt />
       </div>
       <div class="menu">
-        <div class="menu-item" @click="toggle('')">首页</div>
+        <div class="menu-item" @click="toggle('classMain')">首页</div>
         <div class="menu-item" @click="toggle('')">课程中心</div>
         <div class="menu-item" @click="toggle('')">资料下载</div>
         <div class="menu-item" @click="toggle('person')">我的学习</div>
@@ -13,22 +13,29 @@
           <a-icon type="search" />
         </div>
         <div class="menu-item">
-          <a-icon type="bell" />
+          <router-link to="/message">
+            <a-badge dot>
+            <a-icon type="notification" />
+          </a-badge>
+          </router-link>
         </div>
-        <div class="menu-item">
-          <div class="person-message" @mouseenter="isMessShow = true;" @mouseleave="isMessShow = false;">
+        <div class="menu-item" @click="isMessShow = true;">
+          <div class="person-message">
             <a-dropdown>
               <a class="ant-dropdown-link" href="#" style="font-size:12px;">
-                <img src="../static/images/user.jpg" width="30" style="border-radius:50%" />
+                <img src="../static/images/user.jpg" width="30" style="border-radius:50%;" />
                 李叁.JAVA
                 <a-icon type="down" />
               </a>
             </a-dropdown>
-            <div class="person-message-box" v-if="isMessShow">
+            <div
+              class="person-message-box"
+              v-if="isMessShow"
+            >
               <div>
                 <div class="message">
                   <div class="head">
-                    <img src="../static/images/user.jpg" width="70" style="border-radius:50%">
+                    <img src="../static/images/user.jpg" width="70" style="border-radius:50%;margin-right:10px;" />
                   </div>
                   <div class="name-mess">
                     <div class="name">
@@ -37,7 +44,24 @@
                       JAVA
                     </div>
                     <div class="dept">产品交付部</div>
-                    <div class="order">排名：<span style="color:red">7</span>/390</div>
+                    <div class="order">
+                      排名：
+                      <span style="color:red">7</span>/390
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:12px;">
+                    <div><span style="color:#E99E42;">12</span>分钟</div>
+                    <div>今日学习</div>
+                  </div>
+                  <div style="font-size:12px;">
+                    <div><span style="color:#E99E42;">12</span>分钟</div>
+                    <div>本周学习</div>
+                  </div>
+                  <div style="font-size:12px;">
+                    <div><span style="color:#E99E42;">120</span>分钟</div>
+                    <div>累积学习</div>
                   </div>
                 </div>
                 <div class="tel">
@@ -61,7 +85,7 @@ export default {
   data() {
     return {
       collapsed: false,
-      isMessShow: false,
+      isMessShow: false
     };
   },
   methods: {
@@ -80,13 +104,14 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 63px;
+    height: 50px;
     width: auto;
     padding-right: 10px;
     box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
     .logo {
+      display: flex;
+      align-items: center;
       height: 100%;
-      width: 237px;
     }
     .menu {
       display: flex;
@@ -112,12 +137,30 @@ export default {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             border-radius: 4px;
-            >div {
+            > div {
               height: 100%;
-              >div {
+              > div {
                 height: 50%;
+                &:nth-child(2) {
+                  height: 20%;
+                  display: flex;
+                  >div {
+                    width: 33%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    >div {
+                      height: 50%;
+                      width: 100%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                  }
+                }
                 &:last-child {
-                  background: #F2F2F2;
+                  height: 30%;
+                  background: #f2f2f2;
                 }
               }
               .message {
@@ -135,7 +178,7 @@ export default {
                     font-size: 16px;
                     font-weight: 900;
                     color: #000;
-                    >span {
+                    > span {
                       color: #ccc;
                     }
                   }
@@ -143,18 +186,17 @@ export default {
               }
               .tel {
                 padding: 5px;
-                  >div {
-                    font-size: 12px;
-                    color: #B8B8B8;
-                    margin-top: 16px;
-                    text-align: left;
-                    &:last-child {
-                      margin-top: 0;
-                      text-align: right;
-                      color: #5AADEA;
-                    }
+                > div {
+                  font-size: 12px;
+                  color: #b8b8b8;
+                  text-align: left;
+                  &:last-child {
+                    margin-top: 0;
+                    text-align: right;
+                    color: #5aadea;
                   }
                 }
+              }
             }
           }
         }
