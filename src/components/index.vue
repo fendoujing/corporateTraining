@@ -5,7 +5,7 @@
        <img src="../static/images/logo.png" alt="">
      </div>
      <div class="menu">
-       <div class="menu-item" @click="toggle('')">首页</div>
+       <div class="menu-item" @click="toggle('classMain')">首页</div>
        <div class="menu-item" @click="toggle('')">课程中心</div>
        <div class="menu-item" @click="toggle('')">资料下载</div>
        <div class="menu-item" @click="toggle('person')">我的学习</div>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     toggle(router_name) {
-      this.router.push(router_name);
+      this.$router.push(router_name);
     }
   },
 }
