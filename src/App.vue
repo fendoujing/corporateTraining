@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <page-main></page-main>
+    <page-main>测试提交</page-main>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 import PageMain from './components/index';
 export default {
   name: 'app',
+  data:function(){
+    return {
+      name:'提交测试'
+    }
+  },
   components: {
     PageMain
   }
