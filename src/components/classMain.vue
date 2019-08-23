@@ -1,6 +1,6 @@
 <template>
   <div class="classMain">
-    <div class="slickSlide">xxx</div>
+    <div class="slickSlide" v-bind:style="{backgroundImage:'url('+picss+')'}">xxx</div>
     <div v-for="item in classArr">
       <div class="classTitle" v-text="item.title"></div>
       <div class="classLine">
@@ -8,18 +8,13 @@
           class="classBox"
           v-for="childitem in item.child"
           v-on:click="classClick(item,childitem)"
+          v-bind:style="{backgroundImage:'url('+picss+')'}"
         >
           <span v-text="childitem.name"></span>
         </div>
       </div>
     </div>
   </div>
- <div class="classMain">
-     <div v-on:click="()=>{$router.push('person')}">dfdsf</div>
-     课堂首页
-     <div class="slickSlide"><slick-slide></slick-slide></div>
-
- </div>
 </template>
 
 <script>
@@ -28,39 +23,42 @@ export default {
   name: "",
   data() {
     return {
+      picss: "../../static/images/teacher.png",
       classArr: [
         {
           title: "博锐干部学院",
           child: [
-            { name: "管理类" },
-            { name: "经营类" },
-            { name: "商业类" },
-            { name: "营销类" },
-            { name: "领导力类" },
-            { name: "其他" }
+            { name: "管理类", pic: "../../static/images/teacher.png" },
+            { name: "经营类", pic: "../../static/images/teacher.png" },
+            { name: "商业类", pic: "../../static/images/teacher.png" },
+            { name: "营销类", pic: "../../static/images/teacher.png" },
+            { name: "领导力类", pic: "../../static/images/teacher.png" },
+            { name: "其他", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐工坊",
           child: [
-            { name: "项目管理类" },
-            { name: "沟通类" },
-            { name: "职业类" }
+            { name: "项目管理类", pic: "../../static/images/teacher.png" },
+            { name: "沟通类", pic: "../../static/images/teacher.png" },
+            { name: "职业类", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐专业学堂",
           child: [
-            { name: "产品类" },
-            { name: "营销类" },
-            { name: "研发类" },
-            { name: "项目管理类" },
-            { name: "工具类" }
+            { name: "产品类", pic: "../../static/images/teacher.png" },
+            { name: "营销类", pic: "../../static/images/teacher.png" },
+            { name: "研发类", pic: "../../static/images/teacher.png" },
+            { name: "项目管理类", pic: "../../static/images/teacher.png" },
+            { name: "工具类", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐第一课",
-          child: [{ name: "企业文化培训" }]
+          child: [
+            { name: "企业文化培训", pic: "../../static/images/teacher.png" }
+          ]
         }
       ]
     };
@@ -70,7 +68,7 @@ export default {
       console.log("xx");
       this.$router.push({ name: "classList", query: { class: item } });
       // this.$router.push('classList');
-     // console.log(this.$router);
+      // console.log(this.$router);
     }
   },
   computed: {},
@@ -93,6 +91,7 @@ export default {
 .slickSlide {
   width: 100%;
   height: 160px;
+  /* background-image: url("../../static/images/teacher.png"); */
 }
 .classTitle {
   margin: 30px 0;
@@ -117,5 +116,8 @@ export default {
   margin-right: 16px;
   margin-bottom: 16px;
   cursor: pointer;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>
