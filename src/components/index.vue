@@ -5,19 +5,17 @@
         <img src="../../static/images/logo2.png" alt />
       </div>
       <div class="menu">
-        <div class="menu-item" @click="toggle('classMain')">首页</div>
-        <div class="menu-item" @click="toggle('')">课程中心</div>
-        <div class="menu-item" @click="toggle('')">资料下载</div>
-        <div class="menu-item" @click="toggle('person')">我的学习</div>
-        <div class="menu-item">
+        <div class="menu-item" :class="{active: active == 'classMain'}" @click="toggle('classMain')">首页</div>
+        <div class="menu-item" :class="{active: active == 'classCenter'}" @click="toggle('')">课程中心</div>
+        <div class="menu-item" :class="{active: active == 'download'}" @click="toggle('')">资料下载</div>
+        <div class="menu-item" :class="{active: active == 'person'}" @click="toggle('person')">我的学习</div>
+        <div class="menu-item" :class="{active: active == 'search'}">
           <a-icon type="search" />
         </div>
-        <div class="menu-item">
-          <router-link to="/message">
+        <div class="menu-item" :class="{active: active == 'message'}" @click="toggle('message')">
             <a-badge dot>
             <a-icon type="notification" />
           </a-badge>
-          </router-link>
         </div>
         <div class="menu-item" @click="isMessShow = true;">
           <div class="person-message">
@@ -85,18 +83,24 @@ export default {
   data() {
     return {
       collapsed: false,
-      isMessShow: false
+      isMessShow: false,
+      active: 'classMain'
     };
   },
   methods: {
     toggle(router_name) {
-      this.$router.push(router_name);
+      this.active = router_name;
+      this.$router.push({name: router_name});
     }
   }
 };
 </script>
 
 <style lang="less">
+.active {
+  background: #eee !important;
+  color: #66B4ED !important;
+}
 .container {
   height: 100%;
   min-width: 1280px;
@@ -119,6 +123,8 @@ export default {
       height: 100%;
       padding-left: 20px;
       width: calc(100% - 237px);
+      color: #000;
+      cursor: pointer;
       .menu-item {
         display: flex;
         align-items: center;

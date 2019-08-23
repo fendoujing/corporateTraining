@@ -1,12 +1,13 @@
 <template>
   <div class="classMain">
-    <div class="slickSlide" v-bind:style="{backgroundImage:'url('+picss+')'}">xxx</div>
-    <div v-for="item in classArr">
+    <div class="slickSlide">xxx</div>
+    <div v-for="(item, index) in classArr" :key="index">
       <div class="classTitle" v-text="item.title"></div>
       <div class="classLine">
         <div
           class="classBox"
-          v-for="childitem in item.child"
+          v-for="(childitem, i) in item.child"
+          :key="i"
           v-on:click="classClick(item,childitem)"
           v-bind:style="{backgroundImage:'url('+picss+')'}"
         >
@@ -84,6 +85,7 @@ export default {
 <style  scoped>
 .classMain {
   height: 100%;
+  width: 100%;
   color: #4f4f4f;
   padding-bottom: 20px;
   overflow-y: auto;
