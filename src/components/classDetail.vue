@@ -3,7 +3,7 @@
     <div class="classVideo">
       <video
         width="100%"
-        src="https://www.w3school.com.cn/i/movie.ogg"
+        src="https://geek-knife.oss-cn-beijing.aliyuncs.com/01%E3%80%81%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B-%E6%B3%A8%E8%A7%A3%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91.avi"
         controls="controls"
       >您的浏览器不支持 video 标签。</video>
     </div>
