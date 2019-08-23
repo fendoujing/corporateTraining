@@ -7,6 +7,8 @@ import Person from "../components/person"
 import classMain from "../components/classMain"
 import classList from "../components/classList"
 import classDetail from "../components/classDetail"
+import Message from "../components/message"
+import Test from "../components/test"
  
 let router = [{
     path: '/person',
@@ -27,7 +29,17 @@ let router = [{
     path: '/classDetail',
     name: 'classDetail',
     component: classDetail,
-  }
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: Message,
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test,
+  },
 ];
 
 

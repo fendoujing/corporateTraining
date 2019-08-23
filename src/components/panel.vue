@@ -1,5 +1,5 @@
 <template>
- <div class="panel">
+ <div class="panel" @click="$emit('bookclick')">
      <div class="img-box">
          <img v-if="n == 1" src="../../static/images/book1.jpg" height="90" width="200" alt="">
          <img v-if="n == 2" src="../../static/images/book2.jpg" height="90" width="200" alt="">
@@ -12,7 +12,7 @@
     </div>
      <div class="message">
          <span v-if="bixiu" style="color:#4699D0">必修</span>
-        {{text}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2019.8.23
+        {{text}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         12节/120节&nbsp;&nbsp;&nbsp;&nbsp;<span v-if="bixiu">任务截止：2019.8.15</span> 
         <div :style="{width: num + '%'}" style="z-index:2;"></div>
@@ -49,7 +49,7 @@ export default {
          default: 1
      },
      bixiu: {
-         type: Number,
+         type: Boolean,
          default: false,
      }
  },

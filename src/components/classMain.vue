@@ -1,12 +1,13 @@
 <template>
   <div class="classMain">
     <div class="slickSlide">xxx</div>
-    <div v-for="item in classArr">
+    <div v-for="(item, index) in classArr" :key="index">
       <div class="classTitle" v-text="item.title"></div>
       <div class="classLine">
         <div
           class="classBox"
-          v-for="childitem in item.child"
+          v-for="(childitem, i) in item.child"
+          :key="i"
           v-on:click="classClick(item,childitem)"
         >
           <span v-text="childitem.name"></span>
@@ -14,12 +15,6 @@
       </div>
     </div>
   </div>
- <div class="classMain">
-     <div v-on:click="()=>{$router.push('person')}">dfdsf</div>
-     课堂首页
-     <div class="slickSlide"><slick-slide></slick-slide></div>
-
- </div>
 </template>
 
 <script>
@@ -70,7 +65,7 @@ export default {
       console.log("xx");
       this.$router.push({ name: "classList", query: { class: item } });
       // this.$router.push('classList');
-     // console.log(this.$router);
+      // console.log(this.$router);
     }
   },
   computed: {},
@@ -86,6 +81,7 @@ export default {
 <style  scoped>
 .classMain {
   height: 100%;
+  width: 100%;
   color: #4f4f4f;
   padding-bottom: 20px;
   overflow-y: auto;
