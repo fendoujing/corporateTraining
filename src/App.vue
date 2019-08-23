@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <page-main>测试提交</page-main>
+    asddddddddddddddddddddddddddddd
   </div>
 </template>
 
