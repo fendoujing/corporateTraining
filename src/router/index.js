@@ -5,24 +5,29 @@ Vue.use(Router)
 
 import Person from "../components/person"
 import classMain from "../components/classMain"
-import Message from "../components/message"
-
+import classList from "../components/classList"
+import classDetail from "../components/classDetail"
+ 
 let router = [{
     path: '/person',
     name: 'person',
     component: Person,
   },
   {
-    path: '/classMain',
+    path: '/',
     name: 'classMain',
     component: classMain,
   },
   {
-    path: '/message',
-    name: 'message',
-    component: Message,
+    path: '/classList',
+    name: 'classList',
+    component: classList,
   },
-
+  {
+    path: '/classDetail',
+    name: 'classDetail',
+    component: classDetail,
+  }
 ];
 
 
