@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <page-main>测试提交</page-main>
-    asddddddddddddddddddddddddddddd
+    <page-main></page-main>
   </div>
 </template>
 
@@ -9,11 +8,6 @@
 import PageMain from './components/index';
 export default {
   name: 'app',
-  data:function(){
-    return {
-      name:'提交测试'
-    }
-  },
   components: {
     PageMain
   }
@@ -21,11 +15,14 @@ export default {
 </script>
 
 <style>
+* {box-sizing: border-box;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
+  min-width: 1280px;
 }
 </style>

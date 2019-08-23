@@ -3,11 +3,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
+import Person from "../components/person";
+
 let router = [
     {
-        path: '/s',
-        name: 'main',
-        
+        path: '/person',
+        name: 'person',
+        component: Person,
     }
 ];
 
