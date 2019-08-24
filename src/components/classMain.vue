@@ -9,6 +9,7 @@
           v-for="(childitem, i) in item.child"
           :key="i"
           v-on:click="classClick(item,childitem)"
+          v-bind:style="{backgroundImage:'url('+picss+')'}"
         >
           <span v-text="childitem.name"></span>
         </div>
@@ -23,39 +24,42 @@ export default {
   name: "",
   data() {
     return {
+      picss: "../../static/images/teacher.png",
       classArr: [
         {
           title: "博锐干部学院",
           child: [
-            { name: "管理类" },
-            { name: "经营类" },
-            { name: "商业类" },
-            { name: "营销类" },
-            { name: "领导力类" },
-            { name: "其他" }
+            { name: "管理类", pic: "../../static/images/teacher.png" },
+            { name: "经营类", pic: "../../static/images/teacher.png" },
+            { name: "商业类", pic: "../../static/images/teacher.png" },
+            { name: "营销类", pic: "../../static/images/teacher.png" },
+            { name: "领导力类", pic: "../../static/images/teacher.png" },
+            { name: "其他", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐工坊",
           child: [
-            { name: "项目管理类" },
-            { name: "沟通类" },
-            { name: "职业类" }
+            { name: "项目管理类", pic: "../../static/images/teacher.png" },
+            { name: "沟通类", pic: "../../static/images/teacher.png" },
+            { name: "职业类", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐专业学堂",
           child: [
-            { name: "产品类" },
-            { name: "营销类" },
-            { name: "研发类" },
-            { name: "项目管理类" },
-            { name: "工具类" }
+            { name: "产品类", pic: "../../static/images/teacher.png" },
+            { name: "营销类", pic: "../../static/images/teacher.png" },
+            { name: "研发类", pic: "../../static/images/teacher.png" },
+            { name: "项目管理类", pic: "../../static/images/teacher.png" },
+            { name: "工具类", pic: "../../static/images/teacher.png" }
           ]
         },
         {
           title: "博锐第一课",
-          child: [{ name: "企业文化培训" }]
+          child: [
+            { name: "企业文化培训", pic: "../../static/images/teacher.png" }
+          ]
         }
       ]
     };
@@ -89,6 +93,7 @@ export default {
 .slickSlide {
   width: 100%;
   height: 160px;
+  /* background-image: url("../../static/images/teacher.png"); */
 }
 .classTitle {
   margin: 30px 0;
@@ -113,5 +118,8 @@ export default {
   margin-right: 16px;
   margin-bottom: 16px;
   cursor: pointer;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>

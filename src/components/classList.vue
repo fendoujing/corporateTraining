@@ -1,31 +1,90 @@
 <template>
   <div class="classList">
     <div>
-      <tab-component></tab-component>
-      <div v-on:click="detailClick()">详情</div>
+      <a-tabs defaultActiveKey="1" @change="callback" animated>
+        <a-tab-pane tab="管理类" key="1" forceRender>
+          <div>
+            <panel
+              v-for="(book,index) in bookList1"
+              :key="index"
+              :num="book.num"
+              :fire="book.fire"
+              :n="book.n"
+            ></panel>
+          </div>
+        </a-tab-pane>
+        <a-tab-pane tab="经营类" key="2">
+          <div>
+            <panel
+              v-for="(book,index) in bookList2"
+              :key="index"
+              :num="book.num"
+              :fire="book.fire"
+              :bixiu="true"
+            ></panel>
+          </div>
+        </a-tab-pane>
+        <a-tab-pane tab="商业类" key="3"></a-tab-pane>
+        <a-tab-pane tab="营销类" key="4"></a-tab-pane>
+        <a-tab-pane tab="领导力类" key="5"></a-tab-pane>
+      </a-tabs>
     </div>
+    <div @click="detailClick"><xiangqing</div>
   </div>
 </template>
 
 <script>
 import TabComponent from "./tabComponent";
+import panel from "./panel";
 export default {
   name: "classList",
   data() {
     return {
-      nowMenu: {}
+      nowMenu: {},
+      bookList1: [
+        { name: "a", num: 50, n: 1, fire: true },
+        { name: "a", num: 90, n: 2, fire: true },
+        { name: "a", num: 80, n: 3 },
+        { name: "a", num: 78, n: 4 },
+        { name: "a", num: 98, n: 3 },
+        { name: "a", num: 66, n: 1 },
+        { name: "a", num: 89, n: 4 },
+        { name: "a", num: 50, n: 2 },
+        { name: "a", num: 98, n: 2 },
+        { name: "a", num: 50, n: 3 },
+        { name: "a", num: 30, n: 4 },
+        { name: "a", num: 50, n: 1 }
+      ],
+      bookList2: [
+        { name: "a", num: 50, n: 1, fire: true },
+        { name: "a", num: 90, n: 2, fire: true },
+        { name: "a", num: 80, n: 3 },
+        { name: "a", num: 78, n: 4 },
+        { name: "a", num: 98, n: 3 },
+        { name: "a", num: 66, n: 1 },
+        { name: "a", num: 89, n: 4 },
+        { name: "a", num: 50, n: 2 },
+        { name: "a", num: 98, n: 2 },
+        { name: "a", num: 50, n: 3 },
+        { name: "a", num: 30, n: 4 },
+        { name: "a", num: 50, n: 1 }
+      ]
     };
   },
   methods: {
-    detailClick:function(){
-      this.$router.push({name:'classDetail'});
+    detailClick: function() {
+      this.$router.push({ name: "classDetail" });
+    },
+    callback(key) {
+      console.log(key);
     }
   },
   computed: {},
   created() {},
   mounted() {},
   components: {
-    TabComponent
+    TabComponent,
+    panel
   },
   beforeRouteEnter(to, from, next) {
     next(function(vm) {
@@ -41,4 +100,8 @@ export default {
 </script>
 
 <style  scoped>
+.classList {
+  width: 100%;
+  height: 100%;
+}
 </style>
