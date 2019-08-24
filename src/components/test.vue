@@ -382,6 +382,9 @@ export default {
     };
   },
   methods: {
+    mul_change(value) {
+      console.log(value)
+    },
     singleChange(e) {
       console.log(e);
     },
@@ -421,7 +424,7 @@ export default {
     this.$axios
       .post(
         // "http://192.168.30.219:31002/geek-knife/examination/QueryTopicOfCourse",
-        "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
+        "http://123.56.177.25:8080/geek-knife/examination/QueryTopicOfCourse",
         { packageId: "1" }
       )
       .then(res => {

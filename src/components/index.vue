@@ -138,11 +138,11 @@ export default {
           position: relative;
           .person-message-box {
             position: absolute;
-            bottom: -205px;
-            left: -100%;
+            bottom: -235px;
+            left: -120px;
             z-index: 1000;
-            width: 200px;
-            height: 200px;
+            width: 230px;
+            height: 230px;
             background: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             border-radius: 4px;
@@ -174,7 +174,7 @@ export default {
               }
               .message {
                 display: flex;
-                padding: 5px;
+                padding: 10px;
                 .head {
                   width: 80px;
                   height: 100%;
@@ -194,7 +194,7 @@ export default {
                 }
               }
               .tel {
-                padding: 5px;
+                padding: 10px;
                 > div {
                   font-size: 12px;
                   color: #b8b8b8;
