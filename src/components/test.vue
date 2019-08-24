@@ -30,14 +30,14 @@
           <div v-for="(mul, m_i) in test_data[0].multipleList" :key="mul.topicId">
             <p>{{`${m_i+1}、${mul.topicName}`}}</p>
             <div>
-              <a-checkbox-group>
+              <a-checkbox-group :name="mul.topicId" @change="mulChange">
                 <a-row>
                   <a-col
                     :span="3"
                     v-for="m_answer in mul.topicSelectAnswer"
                     :key="m_answer.answerName"
                   >
-                    <a-checkbox :value="m_answer.answerId">{{m_answer.answerName}}</a-checkbox>
+                    <a-checkbox :value="m_answer.answerId" @click="mulClick(m_i)">{{m_answer.answerName}}</a-checkbox>
                   </a-col>
                 </a-row>
               </a-checkbox-group>
@@ -339,7 +339,6 @@
       <div
         style="position:absolute;top:0;bottom:0;right:0;left:0;z-index:490;background:rgba(0,0,0,.3)"
         v-if="isShow"
-        @click="isShow = false"
       >
         <div style="width:100%;height:100%;position:relative;">
           <div
@@ -357,6 +356,9 @@
                 恭喜你在本次考试中获得
                 <span style="color:#00BD70;font-size:16px;">{{course}}分</span>
               </p>
+              <p style="text-align:center;width:100%;">
+                <a-button @click="$router.go(-1)">返回</a-button>
+              </p>
             </div>
           </div>
         </div>
@@ -366,10 +368,12 @@
 </template>
 
 <script>
+import { clearTimeout } from 'timers';
 export default {
   name: "",
   data() {
     return {
+      i: '',
       last_time: "00:40:00",
       isShow: false,
       test_data: [{}],
@@ -382,6 +386,16 @@ export default {
     };
   },
   methods: {
+    mulChange(value) {
+      // let timer = setTimeout(() => {
+        this.answer.multipleList[this.i].answerList = value;
+      //   clearTimeout(timer);
+      //   timer = null;
+      // });
+    },
+    mulClick(i) {
+      this.i = i;
+    },
     singleChange(e) {
       console.log(e);
     },
@@ -408,7 +422,7 @@ export default {
       this.$axios
         .post(
           // "http://192.168.30.219:31002/geek-knife/examination/CountTopicScore",
-          "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
+          "http://123.56.177.25:8080/geek-knife/examination/CountTopicScore",
           { ...params, packageId: "1", userId: "1" }
         )
         .then(res => {
@@ -421,7 +435,7 @@ export default {
     this.$axios
       .post(
         // "http://192.168.30.219:31002/geek-knife/examination/QueryTopicOfCourse",
-        "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
+        "http://123.56.177.25:8080/geek-knife/examination/QueryTopicOfCourse",
         { packageId: "1" }
       )
       .then(res => {
@@ -439,7 +453,7 @@ export default {
           res.data.content[0].multipleList.map(item => {
             this.answer.multipleList.push({
               topicId: item.topicId,
-              answerId: ""
+              answerList: []
             });
           });
         }

@@ -21,7 +21,7 @@
           <span style="color:red;">{{fen>=90?'优秀':'良好'}}</span>
         </div>
       </div>
-      <div class="title">产品经理的日常</div>
+      <div class="title" @click="$emit('changpin')" style="cursor:pointer;">产品经理的日常</div>
     </div>
   </div>
 </template>
