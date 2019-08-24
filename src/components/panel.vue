@@ -63,7 +63,7 @@ export default {
  },
  methods:{
      emitData(){
-        $emit('bookclick', this.id)
+        this.$emit('bookclick', this.id)
      }
  },
  computed:{},

@@ -11,6 +11,7 @@ import Message from "../components/message"
 import Test from "../components/test"
 import TeacherDetail from "../components/teacherDetail"
 import LecturersCenter from "../components/lecturersCenter"
+import teacherClassList from "../components/teacherCalssList"
  
 let router = [{
     path: '/person',
@@ -51,6 +52,11 @@ let router = [{
     path: '/lecturersCenter',
     name: 'lecturersCenter',
     component: LecturersCenter,
+  },
+  {
+    path: '/teacherClassList',
+    name: 'teacherClassList',
+    component: teacherClassList,
   },
 ];
 
