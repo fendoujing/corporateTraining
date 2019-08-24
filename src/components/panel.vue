@@ -1,10 +1,10 @@
 <template>
  <div class="panel" @click="emitData">
      <div class="img-box">
-         <img v-if="n == 1" src="../../static/images/book1.jpg" height="90" width="200" alt="">
-         <img v-if="n == 2" src="../../static/images/book2.jpg" height="90" width="200" alt="">
-         <img v-if="n == 3" src="../../static/images/book3.png" height="90" width="200" alt="">
-         <img v-if="n == 4" src="../../static/images/book4.jpg" height="90" width="200" alt="">
+         <img v-if="n == 1" src="../../static/images/book1.jpg" height="90" style="margin-left: 70px" alt="">
+         <img v-if="n == 2" src="../../static/images/book2.jpg" height="90" style="margin-left: 70px" alt="">
+         <img v-if="n == 3" src="../../static/images/book3.png" height="90" style="margin-left: 70px" alt="">
+         <img v-if="n == 4" src="../../static/images/book4.jpg" height="90" style="margin-left: 70px" alt="">
      </div>
      <div class="title">
          <span style="font-size:14px">交互设计一二事</span> 

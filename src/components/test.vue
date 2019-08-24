@@ -49,7 +49,7 @@
           </a-radio-group>
         </div>
       </div>
-      <header>多选题（共6题,合计60分）</header>
+      <header>多选题（共6题,合计40分）</header>
       <div class="main-body">
         <p>1.博锐尚格是一家做什么的公司？（2分）</p>
         <div>
@@ -166,6 +166,10 @@
           </a-checkbox-group>
         </div>
       </div>
+      <header>简答题（共一题，合计20分）</header>
+      <div class="main-body">
+        <a-textarea placeholder="请简单" :rows="4"/>
+      </div>
     </div>
     <div class="right">
       <div style="width:100%;height:150px;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);padding:20px;">
@@ -236,6 +240,13 @@
             />
             <a-badge
               count="6"
+              :numberStyle="{backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset'}"
+            />
+          </div>
+           <p style="margin-top: 30px;">简答题（共1题,合计20分）</p>
+          <div style="border-bottom:1px solid #ccc;padding-bottom:10px;">
+            <a-badge
+              count="1"
               :numberStyle="{backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset'}"
             />
           </div>
