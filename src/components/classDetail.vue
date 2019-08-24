@@ -1,113 +1,116 @@
 <template>
-  <div class="classDetail">
-    <div class="classVideo">
-      <video
-        width="100%"
-        src="https://geek-knife.oss-cn-beijing.aliyuncs.com/01%E3%80%81%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B-%E6%B3%A8%E8%A7%A3%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91.mp4"
-        controls="controls"
-      >您的浏览器不支持 video 标签。</video>
+  <div class="classDetailWrap">
+    <div class="breadcrumbs">
+      <span @click="skipIndex">首页</span>>
+      <span @click="skipList">博锐干部学院</span>>
+      <span>管理类</span>
     </div>
-    <div class="videoBottom">
-      <div class="sign" v-on:click="showModal">
-        <a-icon type="star"/>
-        <span>评价</span>
+    <div class="classDetail">
+      <div class="classVideo">
+        <video
+          width="100%"
+          src="https://geek-knife.oss-cn-beijing.aliyuncs.com/01%E3%80%81%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B-%E6%B3%A8%E8%A7%A3%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91.mp4"
+          controls="controls"
+        >您的浏览器不支持 video 标签。</video>
       </div>
-      <div class="sign">
-        <a-icon type="download"/>
-        <span>下载</span>
+      <div class="videoBottom">
+        <div class="sign" v-on:click="showModal">
+          <a-icon type="star"/>
+          <span>评价</span>
+        </div>
+        <div class="sign">
+          <a-icon type="download"/>
+          <span>下载</span>
+        </div>
+        <div class="sign">
+          <a-icon type="heart"/>
+          <span>点赞</span>
+        </div>
       </div>
-      <div class="sign">
-        <a-icon type="heart"/>
-        <span>点赞</span>
+      <div class="centerCont">
+        <div class="leftCatalog">
+          <div class="detailTitle" v-text="detailObj.packageName">管理必须十二讲</div>
+          <ul class="listUl">
+            <li v-for="item in detailObj.contents">
+              <div>
+                <a-icon type="check-circle" theme="twoTone" twoToneColor="#00BD70"/>
+                <a-icon type="reload" style="color:red;"/>
+                <span v-text="item.courseName">任务1：入职须知</span>
+              </div>
+              <div>
+                <span class="time" v-text="item.timeLentgh">05:30</span>
+                <a-icon
+                  type="play-circle"
+                  theme="outlined"
+                  outlinedColor="#7F7F7F"
+                  v-on:click="classClick(item)"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="rightTeacher">
+          <div class="detailTitle">讲师介绍</div>
+          <div class="person">
+            <img width="100%" src="../../static/images/teacher.png">
+            <div class="name" v-text="detailObj.teacherName">杨勇</div>
+          </div>
+          <div class="info">产品研发中心组</div>
+          <div class="info">15689898989</div>
+          <div class="info">yong@persagy.com</div>
+        </div>
       </div>
-    </div>
-    <div class="centerCont">
-      <div class="leftCatalog">
-        <div class="detailTitle">目录</div>
-        <ul class="listUl">
-          <li>
-            <div>
-              <a-icon type="check-circle" theme="twoTone" twoToneColor="#00BD70"/>
-              <span>任务1：入职须知</span>
-            </div>
-            <div>
-              <span class="time">05:30</span>
-              <a-icon type="play-circle" theme="outlined" outlinedColor="#7F7F7F"/>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a-icon type="reload" style="color:red;"/>
-              <span>任务1：入职须知</span>
-            </div>
-            <div>
-              <span class="time">05:30</span>
-              <a-icon type="play-circle" theme="outlined" outlinedColor="#7F7F7F"/>
-            </div>
-          </li>
-        </ul>
+      <div class="cIntroduce">
+        <div class="detailTitle">课程介绍</div>
+        <div class="text">
+          北京博锐尚格节能技术股份有限公司是一家依托卓越的研发团队和丰富的工程实施经验，为大型公共建筑提供能耗数据采集、远传、分析，建筑能耗分项计量与监管，建筑节能在线诊断等全
+          周期智慧能源与设备管理解决方案的高新技术企业。
+        </div>
       </div>
-      <div class="rightTeacher">
-        <div class="detailTitle">讲师介绍</div>
+      <div class="commentBox">
         <div class="person">
           <img width="100%" src="../../static/images/teacher.png">
-          <div class="name">杨勇</div>
+          <div class="name">杨讲师</div>
         </div>
-        <div class="info">产品研发中心组</div>
-        <div class="info">15689898989</div>
-        <div class="info">yong@persagy.com</div>
-      </div>
-    </div>
-    <div class="cIntroduce">
-      <div class="detailTitle">课程介绍</div>
-      <div class="text">
-        北京博锐尚格节能技术股份有限公司是一家依托卓越的研发团队和丰富的工程实施经验，为大型公共建筑提供能耗数据采集、远传、分析，建筑能耗分项计量与监管，建筑节能在线诊断等全
-        周期智慧能源与设备管理解决方案的高新技术企业。
-      </div>
-    </div>
-    <div class="commentBox">
-      <div class="person">
-        <img width="100%" src="../../static/images/teacher.png">
-        <div class="name">杨讲师</div>
-      </div>
-      <div class="comment">
-        <textarea></textarea>
-      </div>
-      <div class="commentButton">
-        <a-button type="primary">提交评论</a-button>
-      </div>
-    </div>
-    <div class="allComment">
-      <div class="allTitle">全部评论（103）</div>
-      <div class="eachComment">
-        <div class="leftImage">
-          <img width="100%" src="../../static/images/teacher.png">
-        </div>
-        <div class="rightCont">
-          <div class="title">
-            <span>名字</span>
-            <span>2019/09/01 12:25</span>
-          </div>
-          <div class="cont">讲的挺好的，学到了东西</div>
-          <div class="mark">
-            <a-icon type="like"/>
-            <span>3</span>
-            <a-icon type="message"/>
-            <span>回复</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="dialogBox">
-      <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论">
-        <p class="diaTitle">你觉得课程怎么样</p>
-        <div class="diaStar">
-           <a-rate v-model='starvalue'/>
-        </div>
-        <div class="comment dialogComment">
+        <div class="comment">
           <textarea></textarea>
         </div>
-      </a-modal>
+        <div class="commentButton">
+          <a-button type="primary">提交评论</a-button>
+        </div>
+      </div>
+      <div class="allComment">
+        <div class="allTitle">全部评论（103）</div>
+        <div class="eachComment">
+          <div class="leftImage">
+            <img width="100%" src="../../static/images/teacher.png">
+          </div>
+          <div class="rightCont">
+            <div class="title">
+              <span>名字</span>
+              <span>2019/09/01 12:25</span>
+            </div>
+            <div class="cont">讲的挺好的，学到了东西</div>
+            <div class="mark">
+              <a-icon type="like"/>
+              <span>3</span>
+              <a-icon type="message"/>
+              <span>回复</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dialogBox">
+        <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论">
+          <p class="diaTitle">你觉得课程怎么样</p>
+          <div class="diaStar">
+            <a-rate v-model="starvalue"/>
+          </div>
+          <div class="comment dialogComment">
+            <textarea></textarea>
+          </div>
+        </a-modal>
+      </div>
     </div>
   </div>
 </template>
@@ -118,7 +121,8 @@ export default {
   data() {
     return {
       dvisible: false,
-      starvalue:2
+      starvalue: 2,
+      detailObj: {}
     };
   },
   methods: {
@@ -128,17 +132,58 @@ export default {
     handleOk(e) {
       console.log(e);
       this.dvisible = false;
+    },
+    skipIndex: function() {
+      this.$router.push({ name: "classMain" });
+    },
+    skipList: function() {
+      this.$router.push({ name: "classList" });
+    },
+    getDetail: function(params) {
+      var that = this;
+      this.$axios
+        .post(
+          "http://192.168.100.233:8888/geek-knife/course/getCourseDetails",
+          {
+            userId: params.userId,
+            packageId: params.packageId
+          }
+        )
+        .then(function(response) {
+          that.detailObj = response.data || {};
+        })
+        .catch(function(error) {
+          var ss = 1;
+        });
+    },
+    classClick: function() {
+      console.log("xxx");
     }
   },
   computed: {},
-  created() {},
+  created() {
+    var params = this.$route.params;
+    this.getDetail(params);
+  },
   mounted() {},
   components: {},
   watch: {}
 };
 </script>
-
 <style  scoped>
+.classDetailWrap{
+   width: 100%;
+   height: 100%;
+  }
+.breadcrumbs {
+  height: 60px;
+  line-height: 70px;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.breadcrumbs span {
+  cursor: pointer;
+}
 .listUl >>> .anticon {
   margin: 0 10px;
   font-size: 18px;
@@ -151,7 +196,7 @@ export default {
 }
 .classDetail {
   width: 100%;
-  padding: 30px;
+  padding: 0 30px 20px;
   background: rgb(247, 247, 247);
   box-sizing: border-box;
   overflow-x: hidden;
@@ -302,10 +347,10 @@ li {
   height: 120px;
   margin-bottom: 20px;
 }
-.diaTitle{
-  margin-bottom:2px;
+.diaTitle {
+  margin-bottom: 2px;
 }
-.diaStar{
-  margin:4px 0px;
+.diaStar {
+  margin: 4px 0px;
 }
 </style>

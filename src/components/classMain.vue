@@ -16,7 +16,6 @@
           v-for="(childitem, i) in item.child"
           :key="i"
           v-on:click="classClick(item,childitem)"
-          v-bind:style="{backgroundImage:'url('+picss+')'}"
         >
           <span v-text="childitem.name"></span>
         </div>
