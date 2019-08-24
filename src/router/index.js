@@ -28,7 +28,7 @@ let router = [{
     component: classList,
   },
   {
-    path: '/classDetail',
+    path: '/classDetail/:classId/:userId',
     name: 'classDetail',
     component: classDetail,
   },

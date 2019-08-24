@@ -1,7 +1,7 @@
 <template>
   <div class="classList">
-    <div>
-      <span>首页</span>>
+    <div class="breadcrumbs">
+      <span @click="skipIndex">首页</span>>
       <span>博锐干部学院</span>
     </div>
     <div>
@@ -117,11 +117,18 @@ export default {
     };
   },
   methods: {
-    bookClick: function() {
-      this.$router.push({ name: "classDetail" });
+    bookClick: function(classId) {
+      var userId = 4;
+      this.$router.push({
+        name: "classDetail",
+        params: { userId: userId, packageId: packageId }
+      });
     },
     callback(key) {
       console.log(key);
+    },
+    skipIndex: function() {
+      this.$router.push({ name: "classMain" });
     }
   },
   computed: {},
@@ -144,6 +151,15 @@ export default {
 </script>
 
 <style  scoped>
+.breadcrumbs {
+  height: 60px;
+  line-height: 70px;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.breadcrumbs span {
+  cursor: pointer;
+}
 .classList {
   width: 100%;
   height: 100%;

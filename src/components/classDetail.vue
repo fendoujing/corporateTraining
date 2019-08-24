@@ -1,5 +1,10 @@
 <template>
   <div class="classDetail">
+    <div class="breadcrumbs">
+      <span @click="skipIndex">首页</span>>
+      <span @click="skipList">博锐干部学院</span>>
+      <span>管理类</span>
+    </div>
     <div class="classVideo">
       <video
         width="100%"
@@ -23,7 +28,7 @@
     </div>
     <div class="centerCont">
       <div class="leftCatalog">
-        <div class="detailTitle">目录</div>
+        <div class="detailTitle">管理必须十二讲</div>
         <ul class="listUl">
           <li>
             <div>
@@ -102,7 +107,7 @@
       <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论">
         <p class="diaTitle">你觉得课程怎么样</p>
         <div class="diaStar">
-           <a-rate v-model='starvalue'/>
+          <a-rate v-model="starvalue"/>
         </div>
         <div class="comment dialogComment">
           <textarea></textarea>
@@ -118,7 +123,7 @@ export default {
   data() {
     return {
       dvisible: false,
-      starvalue:2
+      starvalue: 2
     };
   },
   methods: {
@@ -128,6 +133,12 @@ export default {
     handleOk(e) {
       console.log(e);
       this.dvisible = false;
+    },
+    skipIndex: function() {
+      this.$router.push({ name: "classMain" });
+    },
+    skipList: function() {
+      this.$router.push({ name: "classList" });
     }
   },
   computed: {},
@@ -137,8 +148,16 @@ export default {
   watch: {}
 };
 </script>
-
 <style  scoped>
+.breadcrumbs {
+  height: 60px;
+  line-height: 70px;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.breadcrumbs span {
+  cursor: pointer;
+}
 .listUl >>> .anticon {
   margin: 0 10px;
   font-size: 18px;
@@ -151,7 +170,7 @@ export default {
 }
 .classDetail {
   width: 100%;
-  padding: 30px;
+  padding: 0 30px 20px;
   background: rgb(247, 247, 247);
   box-sizing: border-box;
   overflow-x: hidden;
@@ -302,10 +321,10 @@ li {
   height: 120px;
   margin-bottom: 20px;
 }
-.diaTitle{
-  margin-bottom:2px;
+.diaTitle {
+  margin-bottom: 2px;
 }
-.diaStar{
-  margin:4px 0px;
+.diaStar {
+  margin: 4px 0px;
 }
 </style>
