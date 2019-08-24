@@ -130,6 +130,8 @@ let router = [
 
 
 
+
+
 export default new Router({
   mode: 'hash',
   routes: router,

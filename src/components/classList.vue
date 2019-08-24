@@ -2,7 +2,7 @@
   <div class="classList">
     <div class="breadcrumbs">
       <span @click="skipIndex">首页</span>>
-      <span>博锐干部学院</span>
+      <span v-text="nowMenu.title"></span>
     </div>
     <div>
       <a-tabs defaultActiveKey="1" @change="callback" animated>
@@ -75,9 +75,9 @@ export default {
         { name: "a", num: 90, n: 2, fire: true, id: "2" },
         { name: "a", num: 80, n: 3, id: "3" },
         { name: "a", num: 78, n: 4, id: "1" },
-        { name: "a", num: 98, n: 3, id: "1" },
+        { name: "a", num: 98, n: 3, id: "2" },
         { name: "a", num: 66, n: 1, id: "1" },
-        { name: "a", num: 89, n: 4, id: "1" },
+        { name: "a", num: 89, n: 4, id: "3" },
         { name: "a", num: 50, n: 2 },
         { name: "a", num: 98, n: 2 },
         { name: "a", num: 50, n: 3 },
@@ -86,25 +86,25 @@ export default {
       ],
       bookList2: [
         { name: "a", num: 50, n: 1, fire: true, id: "1" },
-        { name: "a", num: 90, n: 2, fire: true, id: "1" },
-        { name: "a", num: 80, n: 3, id: "1" },
-        { name: "a", num: 78, n: 4, id: "1" },
+        { name: "a", num: 90, n: 2, fire: true, id: "3" },
+        { name: "a", num: 80, n: 3, id: "2" },
+        { name: "a", num: 78, n: 4, id: "2" },
         { name: "a", num: 98, n: 3, id: "1" },
-        { name: "a", num: 66, n: 1 },
-        { name: "a", num: 89, n: 4 },
-        { name: "a", num: 50, n: 2 },
-        { name: "a", num: 98, n: 2 }
+        { name: "a", num: 66, n: 1 , id: "3" },
+        { name: "a", num: 89, n: 4 , id: "2" },
+        { name: "a", num: 50, n: 2 , id: "1" },
+        { name: "a", num: 98, n: 2 , id: "3" }
       ],
       bookList3: [
         { name: "a", num: 50, n: 1, fire: true, id: "1" },
-        { name: "a", num: 90, n: 2, fire: true, id: "1" },
-        { name: "a", num: 80, n: 3, id: "1" },
+        { name: "a", num: 90, n: 2, fire: true, id: "2" },
+        { name: "a", num: 80, n: 3, id: "3" },
         { name: "a", num: 78, n: 4, id: "1" },
-        { name: "a", num: 98, n: 3, id: "1" },
-        { name: "a", num: 66, n: 1, id: "1" },
-        { name: "a", num: 89, n: 4 },
-        { name: "a", num: 50, n: 2 },
-        { name: "a", num: 98, n: 2 }
+        { name: "a", num: 98, n: 3, id: "2" },
+        { name: "a", num: 66, n: 1, id: "3" },
+        { name: "a", num: 89, n: 4 , id: "1" },
+        { name: "a", num: 50, n: 2, id: "2"  },
+        { name: "a", num: 98, n: 2, id: "3"  }
       ],
       bookList4: [
         { name: "a", num: 50, n: 1, fire: true, id: "1" },
@@ -114,8 +114,8 @@ export default {
         { name: "a", num: 98, n: 3, id: "1" },
         { name: "a", num: 66, n: 1, id: "1" },
         { name: "a", num: 89, n: 4, id: "1" },
-        { name: "a", num: 50, n: 2 },
-        { name: "a", num: 98, n: 2 }
+        { name: "a", num: 50, n: 2 , id: "1" },
+        { name: "a", num: 98, n: 2 , id: "1" }
       ]
     };
   },
@@ -133,17 +133,20 @@ export default {
     },
     skipIndex: function() {
       this.$router.push({ name: "classMain" });
+      var ss = 1;
     }
   },
   computed: {},
-  created() {},
+  created() {
+    this.nowMenu = JSON.parse(this.$route.query.class);
+  },
   mounted() {},
   components: {
     panel
   },
   beforeRouteEnter(to, from, next) {
     next(function(vm) {
-      vm.nowMenu = to.query.class;
+      //vm.nowMenu = to.query.class;
     });
   },
   watch: {}
