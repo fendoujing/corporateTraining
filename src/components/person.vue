@@ -14,18 +14,18 @@
         </a-tab-pane>
         <a-tab-pane tab="我的认证" key="3">
           <div class="tab-con-1">
-            <qualification :fen="95" />
-            <qualification :fen="75" />
-            <qualification :fen="99" />
-            <qualification :fen="83" />
-            <qualification :fen="77" />
-            <qualification :fen="82" />
-            <qualification :fen="96" />
-            <qualification :fen="100" />
-            <qualification :fen="78" />
-            <qualification :fen="95" />
-            <qualification :fen="88" />
-            <qualification :fen="95" />
+            <qualification :fen="95"  @changpin="chanPin"/>
+            <qualification :fen="75"  @changpin="chanPin"/>
+            <qualification :fen="99"  @changpin="chanPin"/>
+            <qualification :fen="83"  @changpin="chanPin"/>
+            <qualification :fen="77"  @changpin="chanPin"/>
+            <qualification :fen="82"  @changpin="chanPin"/>
+            <qualification :fen="96"  @changpin="chanPin"/>
+            <qualification :fen="100"  @changpin="chanPin"/>
+            <qualification :fen="78"  @changpin="chanPin"/>
+            <qualification :fen="95"  @changpin="chanPin"/>
+            <qualification :fen="88"  @changpin="chanPin"/>
+            <qualification :fen="95"  @changpin="chanPin"/>
           </div>
         </a-tab-pane>
          <a-tab-pane tab="我的授课" key="4" forceRender>
@@ -37,6 +37,10 @@
           </div>
         </a-tab-pane>
       </a-tabs>
+    </div>
+
+    <div class="mask" @click="isAddShow = false" v-if="isAddShow">
+      <img src="../../static/images/form.png" style="width:50%;height:80%;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);" alt="">
     </div>
     
   </div>
@@ -81,12 +85,22 @@ export default {
     };
   },
   methods: {
+    goBack() {
+      this.$router.go(-1)
+    },
       bookClick() {
-        this.$router.push({path: '/classDetail/1/1'});
+        let n  = Math.floor(Math.random()*3+1)
+        console.log(n)
+        this.$router.push({path: '/classDetail/1/'+n});
       },
       bookClick3() {
-          this.$router.push({path: '/classDetail/1/3'});
+         let n  = Math.floor(Math.random()*3+1)
+        
       },
+      chanPin() {
+        let n  = Math.floor(Math.random()*3+1)
+        this.$router.push({path: '/classDetail/1/'+n})
+      }
   },
   computed: {},
   created() {},
@@ -102,6 +116,15 @@ export default {
 <style lang="less" scoped>
 * {
   box-sizing: border-box;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  z-index: 900;
+  background: rgba(0,0,0,.5);
 }
 .person {
   height: 100%;
