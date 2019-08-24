@@ -30,7 +30,7 @@
         </a-tab-pane>
          <a-tab-pane tab="我的授课" key="4" forceRender>
           <div class="tab-con-1">
-            <panel v-for="(book,index) in bookList2" :key="index" :num="book.num" :fire="book.fire" :bixiu="true" :n="book.n" @bookclick="bookClick"></panel>
+            <panel v-for="(book,index) in bookList2" :key="index" :num="book.num" :fire="book.fire" :bixiu="true" :n="book.n" @bookclick="bookClick3"></panel>
             <div @click="isAddShow = true" :visible="isAddShow" class="add" style="cursor:pointer;display:flex;justify-content: center;align-items: center;width:210px;height:180px;border:1px dashed #ccc;margin-left: 20px;">
                 <a-icon type="plus" style="font-size: 30px;" />
             </div>
@@ -84,6 +84,9 @@ export default {
   methods: {
       bookClick() {
 
+      },
+      bookClick3() {
+          
       },
   },
   computed: {},
