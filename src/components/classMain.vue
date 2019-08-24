@@ -1,6 +1,13 @@
 <template>
   <div class="classMain">
-    <div class="slickSlide">xxx</div>
+    <div class="slickSlide">
+      <a-carousel autoplay>
+        <div class="imageBox"></div>
+        <div class="imageBox"></div>
+        <div class="imageBox"></div>
+        <div class="imageBox"></div>
+      </a-carousel>
+    </div>
     <div v-for="(item, index) in classArr" :key="index">
       <div class="classTitle" v-text="item.title"></div>
       <div class="classLine">
@@ -19,46 +26,45 @@
 </template>
 
 <script>
-import SlickSlide from "./slickSlide";
 export default {
   name: "",
   data() {
     return {
-      picss: "../../static/images/teacher.png",
+      picss: "../../static/images/classBack.jpg",
       classArr: [
         {
           title: "博锐干部学院",
           child: [
-            { name: "管理类", pic: "../../static/images/teacher.png" },
-            { name: "经营类", pic: "../../static/images/teacher.png" },
-            { name: "商业类", pic: "../../static/images/teacher.png" },
-            { name: "营销类", pic: "../../static/images/teacher.png" },
-            { name: "领导力类", pic: "../../static/images/teacher.png" },
-            { name: "其他", pic: "../../static/images/teacher.png" }
+            { name: "管理类", pic: "../../static/images/classBack.jpg" },
+            { name: "经营类", pic: "../../static/images/classBack.jpg" },
+            { name: "商业类", pic: "../../static/images/classBack.jpg" },
+            { name: "营销类", pic: "../../static/images/classBack.jpg" },
+            { name: "领导力类", pic: "../../static/images/classBack.jpg" },
+            { name: "其他", pic: "../../static/images/classBack.jpg" }
           ]
         },
         {
           title: "博锐工坊",
           child: [
-            { name: "项目管理类", pic: "../../static/images/teacher.png" },
-            { name: "沟通类", pic: "../../static/images/teacher.png" },
-            { name: "职业类", pic: "../../static/images/teacher.png" }
+            { name: "项目管理类", pic: "../../static/images/classBack.jpg" },
+            { name: "沟通类", pic: "../../static/images/classBack.jpg" },
+            { name: "职业类", pic: "../../static/images/classBack.jpg" }
           ]
         },
         {
           title: "博锐专业学堂",
           child: [
-            { name: "产品类", pic: "../../static/images/teacher.png" },
-            { name: "营销类", pic: "../../static/images/teacher.png" },
-            { name: "研发类", pic: "../../static/images/teacher.png" },
-            { name: "项目管理类", pic: "../../static/images/teacher.png" },
-            { name: "工具类", pic: "../../static/images/teacher.png" }
+            { name: "产品类", pic: "../../static/images/classBack.jpg" },
+            { name: "营销类", pic: "../../static/images/classBack.jpg" },
+            { name: "研发类", pic: "../../static/images/classBack.jpg" },
+            { name: "项目管理类", pic: "../../static/images/classBack.jpg" },
+            { name: "工具类", pic: "../../static/images/classBack.jpg" }
           ]
         },
         {
           title: "博锐第一课",
           child: [
-            { name: "企业文化培训", pic: "../../static/images/teacher.png" }
+            { name: "企业文化培训", pic: "../../static/images/classBack.jpg" }
           ]
         }
       ]
@@ -76,7 +82,7 @@ export default {
   created() {},
   mounted() {},
   components: {
-    SlickSlide
+    
   },
   watch: {}
 };
@@ -92,8 +98,15 @@ export default {
 }
 .slickSlide {
   width: 100%;
-  height: 160px;
-  /* background-image: url("../../static/images/teacher.png"); */
+  height: 320px;
+}
+.slickSlide .imageBox {
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../../static/images/classBack.jpg");
 }
 .classTitle {
   margin: 30px 0;
@@ -121,5 +134,7 @@ export default {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  background-image: url("../../static/images/classBack.jpg");
+  color: #ffffff;
 }
 </style>

@@ -1,40 +1,66 @@
 <template>
   <div class="classList">
     <div>
+      <span>首页</span>>
+      <span>博锐干部学院</span>
+    </div>
+    <div>
       <a-tabs defaultActiveKey="1" @change="callback" animated>
         <a-tab-pane tab="管理类" key="1" forceRender>
-          <div>
+          <div class="panelBox">
             <panel
               v-for="(book,index) in bookList1"
               :key="index"
               :num="book.num"
               :fire="book.fire"
               :n="book.n"
+              @bookclick="bookClick"
             ></panel>
           </div>
         </a-tab-pane>
         <a-tab-pane tab="经营类" key="2">
-          <div>
+          <div class="panelBox">
             <panel
               v-for="(book,index) in bookList2"
               :key="index"
               :num="book.num"
               :fire="book.fire"
               :bixiu="true"
+              @bookclick="bookClick"
             ></panel>
           </div>
         </a-tab-pane>
-        <a-tab-pane tab="商业类" key="3"></a-tab-pane>
-        <a-tab-pane tab="营销类" key="4"></a-tab-pane>
+        <a-tab-pane tab="商业类" key="3">
+          <div class="panelBox">
+            <panel
+              v-for="(book,index) in bookList2"
+              :key="index"
+              :num="book.num"
+              :fire="book.fire"
+              :bixiu="true"
+              @bookclick="bookClick"
+            ></panel>
+          </div>
+        </a-tab-pane>
+        <a-tab-pane tab="营销类" key="4">
+          <div class="panelBox">
+            <panel
+              v-for="(book,index) in bookList2"
+              :key="index"
+              :num="book.num"
+              :fire="book.fire"
+              :bixiu="true"
+              @bookclick="bookClick"
+            ></panel>
+          </div>
+        </a-tab-pane>
         <a-tab-pane tab="领导力类" key="5"></a-tab-pane>
       </a-tabs>
     </div>
-    <div @click="detailClick"><xiangqing</div>
   </div>
 </template>
 
 <script>
-import TabComponent from "./tabComponent";
 import panel from "./panel";
 export default {
   name: "classList",
@@ -64,15 +90,34 @@ export default {
         { name: "a", num: 66, n: 1 },
         { name: "a", num: 89, n: 4 },
         { name: "a", num: 50, n: 2 },
-        { name: "a", num: 98, n: 2 },
-        { name: "a", num: 50, n: 3 },
-        { name: "a", num: 30, n: 4 },
-        { name: "a", num: 50, n: 1 }
+        { name: "a", num: 98, n: 2 }
+      ],
+      bookList3: [
+        { name: "a", num: 50, n: 1, fire: true },
+        { name: "a", num: 90, n: 2, fire: true },
+        { name: "a", num: 80, n: 3 },
+        { name: "a", num: 78, n: 4 },
+        { name: "a", num: 98, n: 3 },
+        { name: "a", num: 66, n: 1 },
+        { name: "a", num: 89, n: 4 },
+        { name: "a", num: 50, n: 2 },
+        { name: "a", num: 98, n: 2 }
+      ],
+      bookList4: [
+        { name: "a", num: 50, n: 1, fire: true },
+        { name: "a", num: 90, n: 2, fire: true },
+        { name: "a", num: 80, n: 3 },
+        { name: "a", num: 78, n: 4 },
+        { name: "a", num: 98, n: 3 },
+        { name: "a", num: 66, n: 1 },
+        { name: "a", num: 89, n: 4 },
+        { name: "a", num: 50, n: 2 },
+        { name: "a", num: 98, n: 2 }
       ]
     };
   },
   methods: {
-    detailClick: function() {
+    bookClick: function() {
       this.$router.push({ name: "classDetail" });
     },
     callback(key) {
@@ -83,7 +128,6 @@ export default {
   created() {},
   mounted() {},
   components: {
-    TabComponent,
     panel
   },
   beforeRouteEnter(to, from, next) {
@@ -103,5 +147,8 @@ export default {
 .classList {
   width: 100%;
   height: 100%;
+}
+.panelBox .panel {
+  float: left;
 }
 </style>

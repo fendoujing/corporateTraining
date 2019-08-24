@@ -8,7 +8,7 @@
       >您的浏览器不支持 video 标签。</video>
     </div>
     <div class="videoBottom">
-      <div class="sign">
+      <div class="sign" v-on:click="showModal">
         <a-icon type="star"/>
         <span>评价</span>
       </div>
@@ -51,8 +51,11 @@
         <div class="detailTitle">讲师介绍</div>
         <div class="person">
           <img width="100%" src="../../static/images/teacher.png">
-          <div class="name">杨讲师</div>
+          <div class="name">杨勇</div>
         </div>
+        <div class="info">产品研发中心组</div>
+        <div class="info">15689898989</div>
+        <div class="info">yong@persagy.com</div>
       </div>
     </div>
     <div class="cIntroduce">
@@ -95,6 +98,17 @@
         </div>
       </div>
     </div>
+    <div class="dialogBox">
+      <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论">
+        <p class="diaTitle">你觉得课程怎么样</p>
+        <div class="diaStar">
+           <a-rate v-model='starvalue'/>
+        </div>
+        <div class="comment dialogComment">
+          <textarea></textarea>
+        </div>
+      </a-modal>
+    </div>
   </div>
 </template>
 
@@ -102,14 +116,24 @@
 export default {
   name: "classDetail",
   data() {
-    return {};
+    return {
+      dvisible: false,
+      starvalue:2
+    };
   },
-  methods: {},
+  methods: {
+    showModal() {
+      this.dvisible = true;
+    },
+    handleOk(e) {
+      console.log(e);
+      this.dvisible = false;
+    }
+  },
   computed: {},
   created() {},
   mounted() {},
   components: {},
-
   watch: {}
 };
 </script>
@@ -171,6 +195,7 @@ export default {
   background: #ffffff;
   border: 1px solid #c9c9c9;
   box-sizing: border-box;
+  padding-bottom: 20px;
 }
 .rightTeacher .person {
   width: 50%;
@@ -179,6 +204,11 @@ export default {
 .person .name {
   margin: 10px 0;
   text-align: center;
+}
+.rightTeacher .info {
+  line-height: 26px;
+  width: 70%;
+  margin: 0 auto;
 }
 .detailTitle {
   height: 50px;
@@ -226,7 +256,7 @@ li {
   width: calc(100% - 140px);
   height: 120px;
 }
-.commentBox .comment textarea {
+.comment textarea {
   width: 100%;
   height: 100%;
 }
@@ -239,13 +269,13 @@ li {
   width: 120px;
   float: left;
 }
-.commentBox .commentButton {
+.commentButton {
   clear: both;
   text-align: right;
 }
 .allComment .allTitle {
-  padding-bottom:6px;
-  font-size:16px;
+  padding-bottom: 6px;
+  font-size: 16px;
   border-bottom: 1px solid #ececec;
 }
 .eachComment {
@@ -267,5 +297,15 @@ li {
 }
 .eachComment .rightCont > div > span {
   margin-right: 16px;
+}
+.dialogComment {
+  height: 120px;
+  margin-bottom: 20px;
+}
+.diaTitle{
+  margin-bottom:2px;
+}
+.diaStar{
+  margin:4px 0px;
 }
 </style>
