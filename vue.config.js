@@ -6,6 +6,7 @@ module.exports = {
 	baseUrl: './',
 	// 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录
 	assetsDir: 'static',
+	lintOnSave: false,
 	// 生产环境是否开启sourceMap
 	// productionSourceMap: false,
 	// //是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码
