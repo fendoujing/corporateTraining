@@ -7,11 +7,21 @@
     </div>
     <div class="classDetail">
       <div class="classVideo">
-        <video
-          width="100%"
-          src="https://geek-knife.oss-cn-beijing.aliyuncs.com/01%E3%80%81%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B-%E6%B3%A8%E8%A7%A3%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91.mp4"
-          controls="controls"
-        >您的浏览器不支持 video 标签。</video>
+        <div class="classInfo noclass" v-if="!selClass">请开始课程</div>
+        <div class="classInfo" v-if="selClass&&selClass.courseType=='1'&&selClass.courseUrl">
+          <iframe width="100%" height="100%" v-bind:src="selClass.courseUrl"></iframe>
+        </div>
+        <div class="classInfo" v-if="selClass&&selClass.courseType=='2'&&selClass.courseUrl">
+          <iframe width="100%" height="100%" v-bind:src="selClass.courseUrl"></iframe>
+        </div>
+        <div class="classInfo" v-if="selClass&&selClass.courseType=='0'&&selClass.courseUrl">
+          <video
+            id="viedoDom"
+            width="100%"
+            v-bind:src="selClass.courseUrl"
+            controls="controls"
+          >您的浏览器不支持 video 标签。</video>
+        </div>
       </div>
       <div class="videoBottom">
         <div class="sign" v-on:click="showModal">
@@ -31,23 +41,26 @@
         <div class="leftCatalog">
           <div class="detailTitle" v-text="detailObj.packageName">管理必须十二讲</div>
           <ul class="listUl">
-            <li v-for="item in detailObj.contents">
+            <li v-for="item in detailObj.contents" v-on:click="classClick(item)">
               <div>
-                <a-icon type="check-circle" theme="twoTone" twoToneColor="#00BD70"/>
-                <a-icon type="reload" style="color:red;"/>
+                <a-icon
+                  type="check-circle"
+                  theme="twoTone"
+                  twoToneColor="#00BD70"
+                  v-if="item.finished==='1'"
+                />
+                <a-icon type="reload" style="color:#F0AE43;" v-if="item.finished!=='1'"/>
                 <span v-text="item.courseName">任务1：入职须知</span>
               </div>
               <div>
                 <span class="time" v-text="item.timeLentgh">05:30</span>
-                <a-icon
-                  type="play-circle"
-                  theme="outlined"
-                  outlinedColor="#7F7F7F"
-                  v-on:click="classClick(item)"
-                />
+                <a-icon type="play-circle" theme="outlined" outlinedColor="#7F7F7F"/>
               </div>
             </li>
           </ul>
+          <div class="ceshiButton">
+             <a-button type="primary" v-on:click="testShow()">开始测试</a-button>
+          </div>
         </div>
         <div class="rightTeacher">
           <div class="detailTitle">讲师介绍</div>
@@ -69,7 +82,7 @@
       </div>
       <div class="commentBox">
         <div class="person">
-          <img width="100%" src="../../static/images/teacher.png">
+          <img width="100%" src="../../static/images/user2.jpg">
           <div class="name">杨讲师</div>
         </div>
         <div class="comment">
@@ -83,7 +96,7 @@
         <div class="allTitle">全部评论（103）</div>
         <div class="eachComment">
           <div class="leftImage">
-            <img width="100%" src="../../static/images/teacher.png">
+            <img width="100%" src="../../static/images/user2.png">
           </div>
           <div class="rightCont">
             <div class="title">
@@ -122,10 +135,21 @@ export default {
     return {
       dvisible: false,
       starvalue: 2,
-      detailObj: {}
+      detailObj: {},
+      selClass: null,
+      commentList: [
+        {
+          userId: "mock", //类型：String  必有字段  备注：评论人
+          comment: "mock", //类型：String  必有字段  备注：评论内容
+          createTime: "mock" //类型：String  必有字段  备注：评论时间
+        }
+      ]
     };
   },
   methods: {
+    testShow: function() {
+      this.$router.push({ path: "/test" });
+    },
     showModal() {
       this.dvisible = true;
     },
@@ -134,7 +158,8 @@ export default {
       this.dvisible = false;
     },
     skipIndex: function() {
-      this.$router.push({ name: "classMain" });
+      //this.$router.push({ name: "classMain" });
+      this.$router.push({ path: "/" });
     },
     skipList: function() {
       this.$router.push({ name: "classList" });
@@ -150,13 +175,31 @@ export default {
           }
         )
         .then(function(response) {
+          that.detailObj = response.data;
+        })
+        .catch(function(error) {
+          var ss = 1;
+        });
+    },
+    getComment: function(params) {
+      var that = this;
+      this.$axios
+        .post(
+          "http://192.168.100.236:31002/geek-knife/course/listCourseComment",
+          {
+            packageId: params.packageId
+          }
+        )
+        .then(function(response) {
           that.detailObj = response.data || {};
         })
         .catch(function(error) {
           var ss = 1;
         });
     },
-    classClick: function() {
+    classClick: function(item) {
+      this.selClass = item;
+      //document.getElementById("viedoDom").setAttribute("src", item.courseUrl);
       console.log("xxx");
     }
   },
@@ -164,6 +207,7 @@ export default {
   created() {
     var params = this.$route.params;
     this.getDetail(params);
+    this.getComment(params);
   },
   mounted() {},
   components: {},
@@ -171,10 +215,10 @@ export default {
 };
 </script>
 <style  scoped>
-.classDetailWrap{
-   width: 100%;
-   height: 100%;
-  }
+.classDetailWrap {
+  width: 100%;
+  height: 100%;
+}
 .breadcrumbs {
   height: 60px;
   line-height: 70px;
@@ -206,6 +250,20 @@ export default {
   width: 80%;
   margin: 0 auto;
 }
+.classVideo .classInfo {
+  width: 100%;
+  height: 530px;
+}
+.classVideo .classInfo.noclass {
+  line-height: 530px;
+  font-size: 26px;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../../static/images/noclass.png");
+  color: #000000;
+}
 .videoBottom {
   width: 80%;
   margin: 0 auto 40px;
@@ -232,6 +290,7 @@ export default {
   border: 1px solid #c9c9c9;
   min-height: 30px;
   box-sizing: border-box;
+  padding-bottom:18px;
 }
 .rightTeacher {
   float: right;
@@ -283,15 +342,16 @@ li {
 .listUl li {
   line-height: 36px;
   height: 36px;
+  cursor: pointer;
 }
 .listUl li > div {
   float: left;
 }
 .listUl li > div:nth-child(1) {
-  width: 75%;
+  width: 85%;
 }
 .listUl li > div:nth-child(2) {
-  width: 25%;
+  width: 15%;
 }
 .commentBox {
   margin: 40px 0 20px 0;
@@ -352,5 +412,9 @@ li {
 }
 .diaStar {
   margin: 4px 0px;
+}
+.ceshiButton{
+  margin-top:10px;
+  margin-left:20px;
 }
 </style>

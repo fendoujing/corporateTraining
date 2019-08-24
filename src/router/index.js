@@ -29,7 +29,7 @@ let router = [{
     component: classList,
   },
   {
-    path: '/classDetail/:classId/:userId',
+    path: '/classDetail/:userId/:packageId',
     name: 'classDetail',
     component: classDetail,
   },

@@ -72,8 +72,8 @@ export default {
       nowMenu: {},
       bookList1: [
         { name: "a", num: 50, n: 1, fire: true, id: "1" },
-        { name: "a", num: 90, n: 2, fire: true, id: "1" },
-        { name: "a", num: 80, n: 3, id: "1" },
+        { name: "a", num: 90, n: 2, fire: true, id: "2" },
+        { name: "a", num: 80, n: 3, id: "3" },
         { name: "a", num: 78, n: 4, id: "1" },
         { name: "a", num: 98, n: 3, id: "1" },
         { name: "a", num: 66, n: 1, id: "1" },
@@ -121,11 +121,12 @@ export default {
   },
   methods: {
     bookClick: function(packageId) {
-      var userId = '1';
-      this.$router.push({
-        name: "classDetail",
-        params: { userId: userId, packageId: packageId }
-      });
+      var userId = "1";
+      // this.$router.push({
+      //   name: "classDetail",
+      //   params: { userId: userId, packageId: packageId }
+      // });
+      this.$router.push({ path: `/classDetail/${userId}/${packageId}` });
     },
     callback(key) {
       console.log(key);
@@ -145,9 +146,7 @@ export default {
       vm.nowMenu = to.query.class;
     });
   },
-  watch: {
-   
-  }
+  watch: {}
 };
 </script>
 

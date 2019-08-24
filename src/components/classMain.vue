@@ -3,8 +3,8 @@
     <div class="slickSlide">
       <a-carousel autoplay>
         <div class="imageBox"></div>
-        <div class="imageBox"></div>
-        <div class="imageBox"></div>
+        <div class="imageBox imageBox2"></div>
+        <div class="imageBox imageBox3"></div>
         <div class="imageBox"></div>
       </a-carousel>
     </div>
@@ -80,9 +80,7 @@ export default {
   computed: {},
   created() {},
   mounted() {},
-  components: {
-    
-  },
+  components: {},
   watch: {}
 };
 </script>
@@ -105,8 +103,15 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../../static/images/classBack.jpg");
+  background-image: url("../../static/images/build1.jpg");
 }
+.slickSlide .imageBox2 {
+  background-image: url("../../static/images/build2.jpg");
+}
+.slickSlide .imageBox3 {
+  background-image: url("../../static/images/build3.jpg");
+}
+
 .classTitle {
   margin: 30px 0;
   line-height: 1;
@@ -135,5 +140,14 @@ export default {
   background-position: center center;
   background-image: url("../../static/images/classBack.jpg");
   color: #ffffff;
+}
+.classLine .classBox:nth-child(2) {
+  background-image: url("../../static/images/classBack2.jpg");
+}
+.classLine .classBox:nth-child(3) {
+  background-image: url("../../static/images/classBack3.jpg");
+}
+.classLine .classBox:nth-child(4) {
+  background-image: url("../../static/images/bigimg.png");
 }
 </style>
