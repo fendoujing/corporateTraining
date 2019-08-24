@@ -18,6 +18,7 @@
   </el-form>
 </template>
 <script>
+import { setTimeout } from 'timers';
   export default{
     data(){
       return {
@@ -37,21 +38,16 @@
       submitClick: function () {
         var _this = this;
         this.loading = true;
-        // this.postRequest('/login', {
-        //   username: this.loginForm.username,
-        //   password: this.loginForm.password
-        // }).then(resp=> {
-        //   _this.loading = false;
-        //   if (resp && resp.status == 200) {
-        //     var data = resp.data;
-        //     _this.$store.commit('login', data.obj);
-        //     var path = _this.$route.query.redirect;
-        //     _this.$router
-        //       .replace({path: path == '/' || path == undefined ? '/home' : path});
-        //   }
-        // });
-        this.$router.push({name: 'classMain'});
+        setTimeout(() => {
+             this.$nextTick(() => {
+                  this.$router.push({name: 'classMain'});
+             })
+        },500)
+       
       }
+    },
+    mounted() {
+        document.querySelector('#app .top').style.visibility = 'hidden';
     }
   }
 </script>

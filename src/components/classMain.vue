@@ -79,7 +79,9 @@ export default {
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+     document.querySelector('#app .top').style.visibility = 'visible';
+  },
   components: {},
   watch: {}
 };

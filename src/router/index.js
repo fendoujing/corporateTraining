@@ -16,6 +16,11 @@ import Login from "../components/login"
 import Main from "../components/index"
 
 let router = [
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
  {
     path: '/person',
     name: 'person',
