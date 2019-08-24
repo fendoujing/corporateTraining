@@ -1,5 +1,5 @@
 <template>
- <div class="panel" @click="$emit('bookclick')">
+ <div class="panel" @click="emitData">
      <div class="img-box">
          <img v-if="n == 1" src="../../static/images/book1.jpg" height="90" width="200" alt="">
          <img v-if="n == 2" src="../../static/images/book2.jpg" height="90" width="200" alt="">
@@ -51,13 +51,21 @@ export default {
      bixiu: {
          type: Boolean,
          default: false,
+     },
+     id: {
+         type: String,
+         default: ''
      }
  },
  data(){
   return {
   }
  },
- methods:{},
+ methods:{
+     emitData(){
+        $emit('bookclick', this.id)
+     }
+ },
  computed:{},
  created(){},
  mounted(){},

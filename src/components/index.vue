@@ -6,8 +6,8 @@
       </div>
       <div class="menu">
         <div class="menu-item" :class="{active: active == 'classMain'}" @click="toggle('classMain')">首页</div>
-        <div class="menu-item" :class="{active: active == 'classCenter'}" @click="toggle('')">课程中心</div>
-        <div class="menu-item" :class="{active: active == 'download'}" @click="toggle('')">讲师中心</div>
+        <!-- <div class="menu-item" :class="{active: active == 'classCenter'}" @click="toggle('')">课程中心</div> -->
+        <div class="menu-item" :class="{active: active == 'download'}" @click="toggle('lecturersCenter')">讲师中心</div>
         <div class="menu-item" :class="{active: active == 'person'}" @click="toggle('person')">我的学习</div>
         <div class="menu-item" :class="{active: active == 'search'}">
           <a-icon type="search" />
