@@ -11,10 +11,228 @@
         <div class="list">
           <div class="t-panel">
               <div class="img">
-                  <div>李玲|JAVA</div>
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
               </div>
               <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user2.png" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user4.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user2.png" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user4.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+        </div>
+      </div>
 
+        <div class="class-list">
+        <header>JAVA知识</header>
+        <div class="list">
+          <div class="t-panel" @click="gotoDetail">
+              <div class="img">
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user2.png" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user4.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user2.png" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user4.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user3.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
+              </div>
+          </div>
+          <div class="t-panel">
+              <div class="img">
+                  <img src="../../static/images/user.jpg" width="170" height="200" style="margin:0;" alt="">
+              </div>
+              <div class="message-box">
+                  <div style="font-size: 16px;font-weight:900;margin-top: 17px;"><span style="color:#000;">李玲</span>|JAVA</div>
+                  <div style="margin-top: 17px;">产品交付部</div>
+                  <div style="margin-top: 17px;">15866265487</div>
+                  <div style="margin-top: 17px;">liling@persagy.com</div>
               </div>
           </div>
         </div>
@@ -25,11 +243,15 @@
 
 <script>
 export default {
-  name: "",
+  name: "lectures",
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+     gotoDetail() {
+        this.$router.push({name: 'teacherClassList'});
+     },
+  },
   computed: {},
   created() {},
   mounted() {},
@@ -80,9 +302,14 @@ export default {
           margin-bottom: 20px;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
           border-radius: 4px;
+          position: relative;
           .img {
               height: 100%;
               width: 100%;
+              color: #aaa;
+              position:absolute;
+              top: 0;
+              left: 0;
           }
           &:hover .message-box{
               display:block;
@@ -91,8 +318,12 @@ export default {
               height: 100%;
               width: 100%;
               display: none;
-              border: 1px solid #f00;
+              padding: 10px;
               background: #fff;
+              cursor: pointer;
+               position:absolute;
+              top: 0;
+              left: 0;
           }
         }
       }

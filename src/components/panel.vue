@@ -26,6 +26,7 @@
 
 <script>
 export default {
+<<<<<<< HEAD
   name: "panel",
   props: {
     src: {
@@ -71,6 +72,54 @@ export default {
   components: {},
   watch: {}
 };
+=======
+ name:"panel",
+ props: {
+     src: {
+         type: String,
+         default: '../../static/images/book1.jpg'
+     },
+     text: {
+         type: String,
+         default: "理解面向对象的总体思想与主要特性,例如封装..."
+     },
+     num: {
+         type: Number,
+         default: 50
+     },
+     fire: {
+         type: Boolean,
+         default: false,
+     },
+     n: {
+         type: Number,
+         default: 1
+     },
+     bixiu: {
+         type: Boolean,
+         default: false,
+     },
+     id: {
+         type: String,
+         default: ''
+     }
+ },
+ data(){
+  return {
+  }
+ },
+ methods:{
+     emitData(){
+        this.$emit('bookclick', this.id)
+     }
+ },
+ computed:{},
+ created(){},
+ mounted(){},
+ components:{},
+ watch:{},
+}
+>>>>>>> f67d061a8880ab69879b8239728bcc4f6230caae
 </script>
 
 <style lang="less" scoped>

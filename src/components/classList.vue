@@ -146,9 +146,7 @@ export default {
     });
   },
   watch: {
-    $route: function(to, from) {
-      var ss = 1;
-    }
+   
   }
 };
 </script>
