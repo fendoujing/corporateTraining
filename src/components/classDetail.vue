@@ -59,7 +59,7 @@
             </li>
           </ul>
           <div class="ceshiButton">
-             <a-button type="primary" v-on:click="testShow()">开始测试</a-button>
+            <a-button type="primary" v-on:click="testShow()">开始测试</a-button>
           </div>
         </div>
         <div class="rightTeacher">
@@ -83,27 +83,30 @@
       <div class="commentBox">
         <div class="person">
           <img width="100%" src="../../static/images/user2.jpg">
-          <div class="name">杨讲师</div>
+          <div class="name">李叁</div>
         </div>
         <div class="comment">
-          <textarea></textarea>
+          <textarea id="commentText"></textarea>
         </div>
         <div class="commentButton">
-          <a-button type="primary">提交评论</a-button>
+          <a-button type="primary" v-on:click="addComment()">提交评论</a-button>
         </div>
       </div>
       <div class="allComment">
-        <div class="allTitle">全部评论（103）</div>
-        <div class="eachComment">
+        <div class="allTitle">
+          全部评论（
+          <span v-text="commentList.length"></span>）
+        </div>
+        <div class="eachComment" v-for="item in commentList">
           <div class="leftImage">
             <img width="100%" src="../../static/images/user2.png">
           </div>
           <div class="rightCont">
             <div class="title">
-              <span>名字</span>
-              <span>2019/09/01 12:25</span>
+              <span v-text="item.userName">名字</span>
+              <span v-text="item.time">2019/09/01 12:25</span>
             </div>
-            <div class="cont">讲的挺好的，学到了东西</div>
+            <div class="cont" v-text="item.comment">讲的挺好的，学到了东西</div>
             <div class="mark">
               <a-icon type="like"/>
               <span>3</span>
@@ -133,6 +136,7 @@ export default {
   name: "classDetail",
   data() {
     return {
+      params: {},
       dvisible: false,
       starvalue: 2,
       detailObj: {},
@@ -167,13 +171,10 @@ export default {
     getDetail: function(params) {
       var that = this;
       this.$axios
-        .post(
-          "http://192.168.100.233:8888/geek-knife/course/getCourseDetails",
-          {
-            userId: params.userId,
-            packageId: params.packageId
-          }
-        )
+        .post("http://123.56.177.25:8080/geek-knife/course/getCourseDetails", {
+          userId: params.userId,
+          packageId: params.packageId
+        })
         .then(function(response) {
           that.detailObj = response.data;
         })
@@ -181,17 +182,65 @@ export default {
           var ss = 1;
         });
     },
-    getComment: function(params) {
+    getComment: function() {
       var that = this;
       this.$axios
-        .post(
-          "http://192.168.100.236:31002/geek-knife/course/listCourseComment",
-          {
-            packageId: params.packageId
-          }
-        )
+        .post("http://123.56.177.25:8080/geek-knife/course/listCourseComment", {
+          packageId: that.params.packageId
+        })
         .then(function(response) {
-          that.detailObj = response.data || {};
+          that.commentList = response.data || {};
+        })
+        .catch(function(error) {
+          var ss = 1;
+        });
+    },
+    formatDate: function(date, format) {
+      if (!date) return;
+      if (!format) format = "yyyy-MM-dd";
+      switch (typeof date) {
+        case "string":
+          date = new Date(date.replace(/-/, "/"));
+          break;
+        case "number":
+          date = new Date(date);
+          break;
+      }
+      if (!date instanceof Date) return;
+      var dict = {
+        yyyy: date.getFullYear(),
+        M: date.getMonth() + 1,
+        d: date.getDate(),
+        H: date.getHours(),
+        m: date.getMinutes(),
+        s: date.getSeconds(),
+        MM: ("" + (date.getMonth() + 101)).substr(1),
+        dd: ("" + (date.getDate() + 100)).substr(1),
+        HH: ("" + (date.getHours() + 100)).substr(1),
+        mm: ("" + (date.getMinutes() + 100)).substr(1),
+        ss: ("" + (date.getSeconds() + 100)).substr(1)
+      };
+      return format.replace(/(yyyy|MM?|dd?|HH?|ss?|mm?)/g, function() {
+        return dict[arguments[0]];
+      });
+    },
+    addComment: function() {
+      var that = this;
+      var now = new Date().getTime();
+      var time = that.formatDate(now, "yyyy/MM/dd HH:mm");
+      var comment = document.getElementById("commentText").value;
+      if (!comment) return;
+      this.$axios
+        .post("http://123.56.177.25:8080/geek-knife/course/commentCourse", {
+          packageId: that.params.packageId, //类型：String  必有字段  备注：课程id
+          userId: that.params.userId, //类型：String  必有字段  备注：用户id
+          userName: "李叁",
+          time: time,
+          comment: comment //类型：String  必有字段  备注：评论内容
+        })
+        .then(function(response) {
+          document.getElementById("commentText").value = "";
+          that.getComment();
         })
         .catch(function(error) {
           var ss = 1;
@@ -206,8 +255,9 @@ export default {
   computed: {},
   created() {
     var params = this.$route.params;
+    this.params = params;
     this.getDetail(params);
-    this.getComment(params);
+    this.getComment();
   },
   mounted() {},
   components: {},
@@ -252,17 +302,18 @@ export default {
 }
 .classVideo .classInfo {
   width: 100%;
-  height: 530px;
+  height: 520px;
+
 }
 .classVideo .classInfo.noclass {
-  line-height: 530px;
+  line-height: 500px;
   font-size: 26px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../../static/images/noclass.png");
-  color: #000000;
+  background-image: url("../../static/images/classBack2.jpg");
+  color: #fff;
 }
 .videoBottom {
   width: 80%;
@@ -290,7 +341,7 @@ export default {
   border: 1px solid #c9c9c9;
   min-height: 30px;
   box-sizing: border-box;
-  padding-bottom:18px;
+  padding-bottom: 18px;
 }
 .rightTeacher {
   float: right;
@@ -377,6 +428,7 @@ li {
 .commentButton {
   clear: both;
   text-align: right;
+  padding-top: 10px;
 }
 .allComment .allTitle {
   padding-bottom: 6px;
@@ -413,8 +465,8 @@ li {
 .diaStar {
   margin: 4px 0px;
 }
-.ceshiButton{
-  margin-top:10px;
-  margin-left:20px;
+.ceshiButton {
+  margin-top: 10px;
+  margin-left: 20px;
 }
 </style>
