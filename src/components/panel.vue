@@ -6,10 +6,6 @@
          <img v-if="n == 3" src="../../static/images/book3.png" height="90" style="margin-left: 70px" alt="">
          <img v-if="n == 4" src="../../static/images/book4.jpg" height="90" style="margin-left: 70px" alt="">
      </div>
-     <div class="title">
-         <span style="font-size:14px">交互设计一二事</span> 
-         <span style="font-size:12px;">阅读：0</span>
-    </div>
     <div class="title">
       <span style="font-size:14px">交互设计一二事</span>
       <span style="font-size:12px;">阅读：0</span>

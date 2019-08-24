@@ -45,7 +45,6 @@
 <script>
 import Panel from "../components/panel";
 import Qualification from "../components/qualification";
-import Add from "../components/add";
 export default {
   name: "",
   data() {
@@ -83,10 +82,10 @@ export default {
   },
   methods: {
       bookClick() {
-
+        this.$router.push({path: '/classDetail/1/1'});
       },
       bookClick3() {
-          
+          this.$router.push({path: '/classDetail/1/3'});
       },
   },
   computed: {},
@@ -95,7 +94,6 @@ export default {
   components: {
     Panel,
     Qualification,
-    Add
   },
   watch: {}
 };
