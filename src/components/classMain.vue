@@ -87,6 +87,8 @@ export default {
 
 <style  scoped>
 .classMain {
+  padding:0 22px;
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
   color: #4f4f4f;
