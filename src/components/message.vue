@@ -21,7 +21,7 @@
                 <p>防止和缓解交通拥堵同时也催生出了一些与大数据处理相关的职业</p> 
                 <p>提供更加人性化的服务</p>
             </div>
-            <div style="color:#83C2F0;font-size:12px;padding-left:8px;cursor:pointer;">{{index == 1 ?'立即学习':'立即报名'}}</div>
+            <div style="color:#83C2F0;font-size:12px;padding-left:8px;cursor:pointer;" v-on:click="startStudy()">{{index == 1 ?'立即学习':'立即报名'}}</div>
           </div>
            
         </a-list-item>
@@ -55,7 +55,12 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    startStudy:function(){
+      //console.log('ss');
+      this.$router.push("/classDetail/1/1")
+    }
+  },
   computed: {},
   created() {},
   mounted() {},

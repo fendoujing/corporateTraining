@@ -1,17 +1,26 @@
 <template>
   <div class="classDetailWrap">
-    <div class="breadcrumbs">
+    <!-- <div class="breadcrumbs">
       <span @click="skipIndex">首页</span>>
       <span @click="skipList">博锐干部学院</span>>
       <span>管理类</span>
+    </div>-->
+    <div class="breadcrumbs">
+      <a-button v-on:click="goBack()">返回</a-button>
     </div>
     <div class="classDetail">
       <div class="classVideo">
         <div class="classInfo noclass" v-if="!selClass">请开始课程</div>
-        <div class="classInfo" v-if="selClass&&selClass.courseType=='1'&&selClass.courseUrl">
+        <div
+          class="classInfo imageInfo"
+          v-if="selClass&&selClass.courseType=='1'&&selClass.courseUrl"
+        >
           <iframe width="100%" height="100%" v-bind:src="selClass.courseUrl"></iframe>
         </div>
-        <div class="classInfo" v-if="selClass&&selClass.courseType=='2'&&selClass.courseUrl">
+        <div
+          class="classInfo imageInfo"
+          v-if="selClass&&selClass.courseType=='2'&&selClass.courseUrl"
+        >
           <iframe width="100%" height="100%" v-bind:src="selClass.courseUrl"></iframe>
         </div>
         <div class="classInfo" v-if="selClass&&selClass.courseType=='0'&&selClass.courseUrl">
@@ -117,7 +126,7 @@
         </div>
       </div>
       <div class="dialogBox">
-        <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论">
+        <a-modal title="课程评价" v-model="dvisible" @ok="handleOk" okText="提交评论" cancelText="取消">
           <p class="diaTitle">你觉得课程怎么样</p>
           <div class="diaStar">
             <a-rate v-model="starvalue"/>
@@ -151,6 +160,9 @@ export default {
     };
   },
   methods: {
+    goBack: function() {
+      this.$router.go(-1);
+    },
     testShow: function() {
       this.$router.push({ path: "/test" });
     },
@@ -302,10 +314,12 @@ export default {
 }
 .classVideo .classInfo {
   width: 100%;
-  height: 520px;
-
+}
+.classVideo .imageInfo {
+  height: 500px;
 }
 .classVideo .classInfo.noclass {
+  height: 520px;
   line-height: 500px;
   font-size: 26px;
   text-align: center;
@@ -415,6 +429,7 @@ li {
 .comment textarea {
   width: 100%;
   height: 100%;
+  border: 1px solid #cccccc;
 }
 .commentBox .person {
   width: 120px;

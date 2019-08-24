@@ -15,118 +15,55 @@ import teacherClassList from "../components/teacherCalssList"
 import Login from "../components/login"
 import Main from "../components/index"
 
-// let router = [
-//   {
-//     path: '/',
-//     name: 'login',
-//     component: Login,
-//   },{
-//     path: '/person',
-//     name: 'person',
-//     component: Person,
-//   },
-//   {
-//     path: '/classMain',
-//     name: 'classMain',
-//     component: classMain,
-//   },
-//   {
-//     path: '/classList',
-//     name: 'classList',
-//     component: classList,
-//   },
-//   {
-//     path: '/classDetail/:userId/:packageId',
-//     name: 'classDetail',
-//     component: classDetail,
-//   },
-//   {
-//     path: '/message',
-//     name: 'message',
-//     component: Message,
-//   },
-//   {
-//     path: '/test',
-//     name: 'test',
-//     component: Test,
-//   },
-//   {
-//     path: '/teacherDetail',
-//     name: 'teacherDetail',
-//     component: TeacherDetail,
-//   },
-//   {
-//     path: '/lecturersCenter',
-//     name: 'lecturersCenter',
-//     component: LecturersCenter,
-//   },
-//   {
-//     path: '/teacherClassList',
-//     name: 'teacherClassList',
-//     component: teacherClassList,
-//   },
-// ];
-
-let router = [{
-    path: '/',
-    name: 'login',
-    component: Login,
+let router = [
+  {
+    path: '/person',
+    name: 'person',
+    component: Person,
   },
   {
-
-    path: '/main',
-    name: 'main',
-    component: Main,
-    children: [
-      {
-        path: 'classMain',
+    path: '/',
     name: 'classMain',
     component: classMain,
-      },
-      {
-        path: 'person',
-        name: 'person',
-        component: Person,
-      },
-
-      {
-        path: 'classList',
-        name: 'classList',
-        component: classList,
-      },
-      {
-        path: 'classDetail/:userId/:packageId',
-        name: 'classDetail',
-        component: classDetail,
-      },
-      {
-        path: 'message',
-        name: 'message',
-        component: Message,
-      },
-      {
-        path: 'test',
-        name: 'test',
-        component: Test,
-      },
-      {
-        path: 'teacherDetail',
-        name: 'teacherDetail',
-        component: TeacherDetail,
-      },
-      {
-        path: 'lecturersCenter',
-        name: 'lecturersCenter',
-        component: LecturersCenter,
-      },
-      {
-        path: 'teacherClassList',
-        name: 'teacherClassList',
-        component: teacherClassList,
-      },
-    ]
+  },
+  {
+    path: '/classList',
+    name: 'classList',
+    component: classList,
+  },
+  {
+    path: '/classDetail/:userId/:packageId',
+    name: 'classDetail',
+    component: classDetail,
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: Message,
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test,
+  },
+  {
+    path: '/teacherDetail',
+    name: 'teacherDetail',
+    component: TeacherDetail,
+  },
+  {
+    path: '/lecturersCenter',
+    name: 'lecturersCenter',
+    component: LecturersCenter,
+  },
+  {
+    path: '/teacherClassList',
+    name: 'teacherClassList',
+    component: teacherClassList,
   },
 ];
+
+
 
 
 

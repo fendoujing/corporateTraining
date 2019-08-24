@@ -72,7 +72,10 @@ export default {
   methods: {
     classClick: function(item, childitem) {
       console.log("xx");
-      this.$router.push({ name: "classList", query: { class: item } });
+      this.$router.push({
+        name: "classList",
+        query: { class: JSON.stringify(item) }
+      });
       // this.$router.push('classList');
       // console.log(this.$router);
     }
@@ -87,7 +90,7 @@ export default {
 
 <style  scoped>
 .classMain {
-  padding:0 22px;
+  padding: 0 22px;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -127,6 +130,7 @@ export default {
   overflow: hidden;
 }
 .classBox {
+  text-shadow: 5px 5px 5px #999;
   width: 260px;
   height: 160px;
   line-height: 160px;
