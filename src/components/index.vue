@@ -65,7 +65,10 @@
                 <div class="tel">
                   <div class="tel-num">电话：15565656565</div>
                   <div class="email">邮箱：lisan@persagy.com</div>
-                  <div class="logout">退出登录</div>
+                  <div class="logout">
+                    <router-link to="/">退出登录</router-link>
+                    
+                  </div>
                 </div>
               </div>
             </div>

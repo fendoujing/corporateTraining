@@ -1,99 +1,78 @@
 <template>
-  <a-form
-    id="components-form-demo-normal-login"
-    :form="form"
-    class="login-form"
-    @submit="handleSubmit"
-  >
-    <a-form-item>
-      <a-input
-        v-decorator="[
-          'userName',
-          { rules: [{ required: true, message: 'Please input your username!' }] }
-        ]"
-        placeholder="请输入用户名"
-      >
-        <a-icon
-          slot="prefix"
-          type="user"
-          style="color: rgba(0,0,0,.25)"
-        />
-      </a-input>
-    </a-form-item>
-    <a-form-item>
-      <a-input
-        v-decorator="[
-          'password',
-          { rules: [{ required: true, message: 'Please input your Password!' }] }
-        ]"
-        type="password"
-        placeholder="请输入密码"
-      >
-        <a-icon
-          slot="prefix"
-          type="lock"
-          style="color: rgba(0,0,0,.25)"
-        />
-      </a-input>
-    </a-form-item>
-    <a-form-item>
-      <a-checkbox
-        v-decorator="[
-          'remember',
-          {
-            valuePropName: 'checked',
-            initialValue: true,
-          }
-        ]"
-      >
-        Remember me
-      </a-checkbox>
-      <a
-        class="login-form-forgot"
-        href=""
-      >
-        Forgot password
-      </a>
-      <a-button
-        type="primary"
-        html-type="submit"
-        class="login-form-button"
-      >
-        Log in
-      </a-button>
-      Or <a href="">
-        register now!
-      </a>
-    </a-form-item>
-  </a-form>
+  <el-form :rules="rules" class="login-container" label-position="left"
+           label-width="0px" v-loading="loading">
+    <h3 class="login_title">系统登录</h3>
+    <el-form-item prop="account">
+      <el-input type="text" v-model="loginForm.username"
+                auto-complete="off" placeholder="账号"></el-input>
+    </el-form-item>
+    <el-form-item prop="checkPass">
+      <el-input type="password" v-model="loginForm.password"
+                auto-complete="off" placeholder="密码"></el-input>
+    </el-form-item>
+    <el-checkbox class="login_remember" v-model="checked"
+                 label-position="left">记住密码</el-checkbox>
+    <el-form-item style="width: 100%">
+      <el-button type="primary" style="width: 100%" @click="submitClick">登录</el-button>
+    </el-form-item>
+  </el-form>
 </template>
-
 <script>
-
-export default {
-  beforeCreate () {
-    this.form = this.$form.createForm(this);
-  },
-  methods: {
-    handleSubmit (e) {
-      e.preventDefault();
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          console.log('Received values of form: ', values);
-        }
-      });
+  export default{
+    data(){
+      return {
+        rules: {
+          account: [{required: true, message: '请输入用户名', trigger: 'blur'}],
+          checkPass: [{required: true, message: '请输入密码', trigger: 'blur'}]
+        },
+        checked: true,
+        loginForm: {
+          username: 'admin',
+          password: '123'
+        },
+        loading: false
+      }
     },
-  },
-};
+    methods: {
+      submitClick: function () {
+        var _this = this;
+        this.loading = true;
+        // this.postRequest('/login', {
+        //   username: this.loginForm.username,
+        //   password: this.loginForm.password
+        // }).then(resp=> {
+        //   _this.loading = false;
+        //   if (resp && resp.status == 200) {
+        //     var data = resp.data;
+        //     _this.$store.commit('login', data.obj);
+        //     var path = _this.$route.query.redirect;
+        //     _this.$router
+        //       .replace({path: path == '/' || path == undefined ? '/home' : path});
+        //   }
+        // });
+        this.$router.push({name: 'classMain'});
+      }
+    }
+  }
 </script>
 <style>
-#components-form-demo-normal-login .login-form {
-  max-width: 300px;
-}
-#components-form-demo-normal-login .login-form-forgot {
-  float: right;
-}
-#components-form-demo-normal-login .login-form-button {
-  width: 100%;
-}
+  .login-container {
+    border-radius: 15px;
+    background-clip: padding-box;
+    margin: 180px auto;
+    width: 350px;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px #cac6c6;
+  }
+  .login_title {
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
+  }
+  .login_remember {
+    margin: 0px 0px 35px 0px;
+    text-align: left;
+  }
 </style>

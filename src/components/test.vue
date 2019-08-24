@@ -392,7 +392,8 @@ export default {
     queryUserTopicResult() {
       this.$axios
         .post(
-          "http://192.168.30.219:31002/geek-knife/examination/QueryUserTopicResult",
+          // "http://192.168.30.219:31002/geek-knife/examination/QueryUserTopicResult",
+          "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
           { packageId: "1", userId: "1" }
         )
         .then(res => {
@@ -406,7 +407,8 @@ export default {
       if (!params.shortAnswerList.length) delete params.shortAnswerList;
       this.$axios
         .post(
-          "http://192.168.30.219:31002/geek-knife/examination/CountTopicScore",
+          // "http://192.168.30.219:31002/geek-knife/examination/CountTopicScore",
+          "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
           { ...params, packageId: "1", userId: "1" }
         )
         .then(res => {
@@ -418,7 +420,8 @@ export default {
   created() {
     this.$axios
       .post(
-        "http://192.168.30.219:31002/geek-knife/examination/QueryTopicOfCourse",
+        // "http://192.168.30.219:31002/geek-knife/examination/QueryTopicOfCourse",
+        "http://123.56.177.25:8080/geek-knife/examination/QueryUserTopicResult",
         { packageId: "1" }
       )
       .then(res => {
